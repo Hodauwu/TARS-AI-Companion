@@ -54,7 +54,7 @@ Ollama installed and running
 
 1. Clone the repository:
 
-git clone https://github.com/YourUsername/TARS-AI-Companion.git
+git clone https://github.com/Hodauwu/TARS-AI-Companion.git
 cd TARS-AI-Companion
 
 2. Backend Setup:
