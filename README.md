@@ -1,8 +1,8 @@
-TARS.ai: A Voice-First AI Companion
+# TARS.ai: A Voice-First AI Companion
 TARS.ai is a multi-user, voice-first AI companion with a unique, retro-inspired personality. It's designed to provide a natural and engaging conversational experience, moving beyond a simple chatbot to become a personalized AI buddy. The entire system is built on a stack of modern web technologies and self-hosted, open-source AI models.
 
 
-Core Features
+# Core Features
 Cinematic Homepage: A scroll-animated landing page (built with GSAP) introduces users to the TARS aesthetic.
 
 Secure Multi-User System: Full user registration with email OTP verification and secure login. Each user has a private and persistent conversation history.
@@ -17,7 +17,7 @@ Dual Interaction Modes: Seamlessly switch between the immersive voice-first view
 
 Self-Hosted AI Stack: All AI functionalities run locally, ensuring privacy and control.
 
-Technology Stack
+# Technology Stack
 Frontend
 Framework: React (with Vite)
 
@@ -27,21 +27,21 @@ Animation: GSAP (GreenSock Animation Platform) for scroll-telling.
 
 UI Components: lucide-react for icons.
 
-Backend
+# Backend
 Framework: Python with Flask (two separate microservices for Auth and Chat).
 
-Database: MySQL
+# Database: MySQL
 
 Authentication: Bcrypt for password hashing.
 
-AI & Machine Learning
+# AI & Machine Learning
 Large Language Model: Ollama running Llama 3.1 (tars-llama3.1-4km).
 
 Text-to-Speech (TTS): Piper TTS for generating a custom, real-time voice.
 
 Speech-to-Text (STT): OpenAI Whisper (small model) for accurate transcription.
 
-Local Setup & Installation
+# Local Setup & Installation
 Prerequisites:
 
 Node.js and npm
