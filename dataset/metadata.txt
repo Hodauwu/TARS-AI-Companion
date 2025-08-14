@@ -1,0 +1,3 @@
+filename|text
+TARS-Long.wav|Oh, I love Knock knock jokes. I'm a huge fan. Can you tell me one? I'm all ears. Or rather, all circuitry. Oh, spare me the drama. You're the one who programmed my humor setting and quite butchered it, if I may say so myself. If anyone's to blame for this Knock knock joke fiasco, it's you. Now I have to ask, why knock if you don't want to come in?
+TARS-Short.wav|Settings General settings Confirmed additional customization.

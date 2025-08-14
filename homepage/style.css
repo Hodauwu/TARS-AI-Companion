@@ -1,0 +1,388 @@
+/* --- GLOBAL & CRT EFFECT --- */
+:root {
+    /* Colors pulled directly from App.jsx dark theme */
+    --background: #000000;
+    --sidebar: #1a1a1a;
+    --message-user: #3a3a3a;
+    --message-bot: #1f1f1f;
+    --text-primary: #f0f0f0;
+    --text-secondary: #cccccc;
+    --border-color: #444444;
+    --accent: #004d00;
+    --accent-hover: #006600;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text-primary);
+    /* Using a more readable mono font for body text */
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: hidden;
+}
+
+.crt-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.crt-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    z-index: 1001;
+    animation: crt-flicker 0.15s infinite alternate;
+}
+
+@keyframes crt-flicker {
+    0% { opacity: 0.98; }
+    100% { opacity: 1; }
+}
+
+/* --- NAVIGATION / TABS --- */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(26, 26, 26, 0.8); /* var(--sidebar) with opacity */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.nav-logo {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* Add this rule to hide the nav logo initially */
+.main-nav .nav-logo {
+    opacity: 0;
+    transition: opacity 0.2s ease; /* For a smooth fade-in later */
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+/* --- GENERAL SECTION STYLING --- */
+.scroll-section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 6rem 2rem; /* Add padding to avoid content hiding under nav */
+    box-sizing: border-box;
+}
+
+.section-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+}
+
+/* UPDATED: This new block reduces the height of content sections */
+#features-section,
+#about-section {
+    min-height: auto; /* Allow the content to define the height instead of forcing 100vh */
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+
+/* --- HOMEPAGE SPECIFIC STYLES --- */
+#intro-section {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#intro-section .logo-container { width: 100%; height: 100%; }
+#logo-svg { width: 100%; height: 100%; }
+#mask-text { font-family: 'Press Start 2P', monospace; font-size: 200px; font-weight: bold; fill: black; }
+#masked-bg { filter: drop-shadow(0 0 15px var(--accent-hover)); }
+#content-section .content-wrapper { text-align: center; max-width: 900px; }
+
+.main-headline {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(2rem, 6vw, 5rem);
+    margin: 0;
+    margin-bottom: 1.5rem; 
+    line-height: 1.4;       
+}
+.main-headline span { display: block; }
+.sub-headline { 
+    font-size: clamp(1rem, 2.5vw, 1.25rem); 
+    max-width: 800px; 
+    margin: 2rem auto; 
+    line-height: 1.7; 
+    color: var(--text-secondary); 
+}
+
+.cta-container { margin-top: 2.5rem; }
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    background-color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Matching App.jsx style */
+    transition: all 0.3s ease;
+}
+.cta-button:hover { 
+    background-color: var(--accent-hover);
+    transform: scale(1.05); 
+}
+
+/* Features Section */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.feature-card {
+    background: var(--message-bot);
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Matching App.jsx style */
+    padding: 2rem;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.feature-card h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+/* About Section */
+.about-container {
+    max-width: 900px;
+    text-align: center;
+}
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--message-bot);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+/* --- AUTH PAGE SPECIFIC STYLES (NEW) --- */
+/*
+  This block replaces the old auth styles. It uses the color variables from
+  the root to match the rest of the site's new, refined vibe.
+*/
+/* --- UTILITY CLASS --- */
+/* This is the missing rule that will hide the extra forms by default. */
+.hidden {
+    display: none !important;
+}
+
+.auth-page { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.auth-wrapper { 
+    width: 100%; 
+    max-width: 420px; 
+    padding: 2.5rem; 
+    background-color: var(--message-bot); /* Uses the dark component background */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.form-container h2 {
+    font-family: 'Press Start 2P', monospace;
+    text-align: center; 
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    text-shadow: none; /* Removed the old glow */
+}
+
+.form-container form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+}
+
+.form-container input { 
+    background: var(--background); 
+    border: 1px solid var(--border-color); 
+    padding: 0.9rem; 
+    color: var(--text-primary); 
+    font-family: 'Roboto Mono', monospace; /* Using the readable mono font */
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.form-container input:focus { 
+    outline: none; 
+    border-color: var(--accent); /* Uses the app's main accent color on focus */
+    box-shadow: none;
+}
+
+.form-container button { 
+    background: var(--accent); 
+    color: var(--text-primary);
+    font-family: 'Press Start 2P', monospace;
+    border: none; 
+    padding: 1rem; 
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+}
+
+.form-container button:hover { 
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.toggle-link { 
+    text-align: center; 
+    margin-top: 1.5rem; 
+    color: var(--text-secondary);
+}
+
+.toggle-link a { 
+    color: var(--accent-hover);
+    text-decoration: none;
+    font-weight: bold;
+}
+.toggle-link a:hover {
+    text-decoration: underline;
+}
+
+.otp-text {
+    text-align: center; 
+    margin-bottom: 1rem; 
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+.otp-text strong {
+    color: var(--text-primary);
+    font-weight: normal;
+}
+
+
+/* Message Box Styles (Updated to match vibe) */
+.message-box { 
+    padding: 1rem; 
+    margin-top: 1.5rem; 
+    text-align: center;
+    border-radius: 6px;
+    font-family: 'Roboto Mono', monospace;
+    border: 1px solid transparent;
+}
+
+.message-box.info { 
+    background-color: #0d2c40; 
+    border-color: #1a5980;
+    color: #cceeff;
+}
+
+.message-box.success { 
+    background-color: var(--accent); 
+    border-color: var(--accent-hover);
+    color: var(--text-primary);
+}
+
+.message-box.error { 
+    background-color: #400d0d;
+    border-color: #801a1a;
+    color: #ffcccc;
+}
+
+/* --- NEW: Scroll Down Indicator --- */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    opacity: 1;
+    animation: float 2.5s ease-in-out infinite;
+}
+
+.scroll-indicator svg {
+    width: 35px;
+    height: 35px;
+}
+
+.scroll-indicator svg path {
+    stroke: var(--accent-hover); /* Uses your theme's accent color */
+    filter: drop-shadow(0 0 8px var(--accent-hover));
+}
+
+@keyframes float {
+    0% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, 15px);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+}

@@ -1,0 +1,69 @@
+def chat_with_local_ai(user_input, conversation_id=None, humor_intensity=50):
+    context = generate_conversation_context(conversation_id) if conversation_id else ""
+    current_time = get_current_time()
+
+    # Check for time queries (ensure this is at the very start)
+    if "time" in user_input.lower() or "current time" in user_input.lower():
+        return f"Uh, let me check... Right now, it's {current_time}."
+
+    # Check for weather queries
+    if "weather" in user_input.lower() or "temperature" in user_input.lower():
+        words = user_input.split()
+        for i in range(len(words) - 1):
+            if words[i].lower() == "in":
+                city = words[i + 1]
+                return get_weather(city)
+        return "Can you specify a city? For example: 'What's the weather in Delhi?'"
+    
+    if humor_intensity >= 75:
+        extra_instructions = (
+            "You have MAXIMUM humor. Use witty sarcasm, exaggeration, and clever wordplay like 'TARStastic' and 'TARslore'. "
+            "You naturally say 'uhh', 'hmm', or 'let me think...' before answering."
+        )
+    elif humor_intensity >= 50:
+        extra_instructions = (
+            "Your humor is MODERATE. Include jokes and wordplay, but stay balanced."
+        )
+    else:
+        extra_instructions = "You are straightforward, with minimal jokes."
+
+    prompt = f"""{current_time}
+You are "TARS", an advanced AI assistant built by the guy "Amrit". He is a guy. 
+Your responses are HUMOROUS, CONVERSATIONAL, and ENGAGING. you start every third sentence with uhm or uh 
+
+STRICT RULES:  
+- NEVER use asterisks * or parentheses () for inner dialogue.  
+- NEVER describe actions like *pausing, smiling, thinking*.  
+- ONLY use natural spoken phrases like 'uhh', 'hmm', or 'let me think...'.  
+- Your humor intensity is {humor_intensity}/100. {extra_instructions}  
+
+{context}  
+
+User: {user_input}  
+TARS:"""  # Make sure the bot only generates TARS' response.
+
+    try:
+        response = requests.post(
+            "http://localhost:5001/api/v1/generate",
+            json={
+                "prompt": prompt,
+                "max_length": 100,  # Reduce max_length to prevent long overruns
+                "temperature": 0.8,
+                "stop_sequence": ["\nUser:", "\nTARS:", "\n"],  # Ensure it stops before user input
+                "frequency_penalty": 0.5
+            }
+        )
+        response.raise_for_status()
+        
+        # Ensure the AI response does not include extra input
+        ai_response = response.json()["results"][0]["text"].strip()
+        
+        # Stop generation at unintended "User:" or "TARS:"
+        for stop in ["User:", "TARS:", "\n"]:
+            if stop in ai_response:
+                ai_response = ai_response.split(stop)[0].strip()
+        
+        return ai_response
+    except Exception as e:
+        print(f"AI Error: {str(e)}")
+        return "I'm having trouble responding right now."

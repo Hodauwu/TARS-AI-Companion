@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="483pt" height="323pt" viewBox="0.00 0.00 482.78 322.71">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 318.71)">
+<title>SimpleDataFlowDiagramForAIChatbot</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-318.71 478.78,-318.71 478.78,4 -4,4"></polygon>
+<!-- user -->
+<g id="node1" class="node">
+<title>user</title>
+<polygon fill="white" stroke="black" points="76.88,-281.26 22.88,-281.26 22.88,-245.26 76.88,-245.26 76.88,-281.26"></polygon>
+<text text-anchor="middle" x="49.88" y="-260.26" font-family="monospace" font-size="10.00">User</text>
+</g>
+<!-- p1_handle_user_interaction -->
+<g id="node6" class="node">
+<title>p1_handle_user_interaction</title>
+<ellipse fill="white" stroke="black" cx="163.32" cy="-160.44" rx="67.39" ry="18"></ellipse>
+<text text-anchor="middle" x="163.32" y="-157.44" font-family="monospace" font-size="10.00">Handle User Interaction</text>
+</g>
+<!-- user&#45;&gt;p1_handle_user_interaction -->
+<g id="edge1" class="edge">
+<title>user-&gt;p1_handle_user_interaction</title>
+<path fill="none" stroke="blue" d="M70.16,-244.88C88.37,-228.37 115.27,-203.99 135.48,-185.67"></path>
+<polygon fill="blue" stroke="blue" points="137.79,-188.3 142.85,-178.99 133.09,-183.11 137.79,-188.3"></polygon>
+<text text-anchor="middle" x="60.19" y="-218.27" font-family="monospace" font-size="10.00">Send Message/Audio</text>
+</g>
+<!-- external_apis -->
+<g id="node2" class="node">
+<title>external_apis</title>
+<polygon fill="white" stroke="black" points="470.69,-74.01 398.31,-74.01 398.31,-38.01 470.69,-38.01 470.69,-74.01"></polygon>
+<text text-anchor="middle" x="434.5" y="-53.01" font-family="monospace" font-size="10.00">External APIs</text>
+</g>
+<!-- ollama_ai -->
+<g id="node3" class="node">
+<title>ollama_ai</title>
+<polygon fill="white" stroke="black" points="261.5,-36 203.02,-36 203.02,0 261.5,0 261.5,-36"></polygon>
+<text text-anchor="middle" x="232.26" y="-15" font-family="monospace" font-size="10.00">Ollama AI</text>
+</g>
+<!-- db -->
+<g id="node4" class="node">
+<title>db</title>
+<path fill="white" stroke="black" d="M253.25,-311.44C253.25,-313.25 241.14,-314.71 226.25,-314.71 211.35,-314.71 199.25,-313.25 199.25,-311.44 199.25,-311.44 199.25,-281.99 199.25,-281.99 199.25,-280.18 211.35,-278.71 226.25,-278.71 241.14,-278.71 253.25,-280.18 253.25,-281.99 253.25,-281.99 253.25,-311.44 253.25,-311.44"></path>
+<path fill="none" stroke="black" d="M253.25,-311.44C253.25,-309.64 241.14,-308.17 226.25,-308.17 211.35,-308.17 199.25,-309.64 199.25,-311.44"></path>
+<text text-anchor="middle" x="226.25" y="-293.71" font-family="monospace" font-size="10.00">Database</text>
+</g>
+<!-- audio_files -->
+<g id="node5" class="node">
+<title>audio_files</title>
+<path fill="white" stroke="black" d="M474.78,-281.64C474.78,-283.45 460.68,-284.91 443.31,-284.91 425.94,-284.91 411.83,-283.45 411.83,-281.64 411.83,-281.64 411.83,-252.19 411.83,-252.19 411.83,-250.38 425.94,-248.91 443.31,-248.91 460.68,-248.91 474.78,-250.38 474.78,-252.19 474.78,-252.19 474.78,-281.64 474.78,-281.64"></path>
+<path fill="none" stroke="black" d="M474.78,-281.64C474.78,-279.84 460.68,-278.37 443.31,-278.37 425.94,-278.37 411.83,-279.84 411.83,-281.64"></path>
+<text text-anchor="middle" x="443.31" y="-263.91" font-family="monospace" font-size="10.00">Audio Files</text>
+</g>
+<!-- p1_handle_user_interaction&#45;&gt;db -->
+<g id="edge11" class="edge">
+<title>p1_handle_user_interaction-&gt;db</title>
+<path fill="none" stroke="grey" d="M171.67,-178.53C182.25,-201.44 200.6,-241.17 213.07,-268.18"></path>
+<polygon fill="grey" stroke="grey" points="209.85,-269.56 217.22,-277.17 216.21,-266.62 209.85,-269.56"></polygon>
+<text text-anchor="middle" x="154.74" y="-226.36" font-family="monospace" font-size="10.00">Save Conversation</text>
+</g>
+<!-- p2_transcribe_audio -->
+<g id="node7" class="node">
+<title>p2_transcribe_audio</title>
+<ellipse fill="white" stroke="black" cx="51.87" cy="-54.8" rx="51.87" ry="18"></ellipse>
+<text text-anchor="middle" x="51.87" y="-51.8" font-family="monospace" font-size="10.00">Transcribe Audio</text>
+</g>
+<!-- p1_handle_user_interaction&#45;&gt;p2_transcribe_audio -->
+<g id="edge2" class="edge">
+<title>p1_handle_user_interaction-&gt;p2_transcribe_audio</title>
+<path fill="none" stroke="green" d="M144.66,-142.76C126.45,-125.49 98.55,-99.05 78.1,-79.66"></path>
+<polygon fill="green" stroke="green" points="80.61,-77.22 70.94,-72.88 75.79,-82.3 80.61,-77.22"></polygon>
+<text text-anchor="middle" x="87.08" y="-114.21" font-family="monospace" font-size="10.00">Audio Input</text>
+</g>
+<!-- p3_route_query -->
+<g id="node8" class="node">
+<title>p3_route_query</title>
+<ellipse fill="white" stroke="black" cx="295.3" cy="-114.66" rx="40.52" ry="18"></ellipse>
+<text text-anchor="middle" x="295.3" y="-111.66" font-family="monospace" font-size="10.00">Route Query</text>
+</g>
+<!-- p1_handle_user_interaction&#45;&gt;p3_route_query -->
+<g id="edge3" class="edge">
+<title>p1_handle_user_interaction-&gt;p3_route_query</title>
+<path fill="none" stroke="green" d="M205.08,-145.95C220.15,-140.73 237.18,-134.82 252.35,-129.56"></path>
+<polygon fill="green" stroke="green" points="253.28,-132.94 261.59,-126.36 250.99,-126.33 253.28,-132.94"></polygon>
+<text text-anchor="middle" x="207.75" y="-128.76" font-family="monospace" font-size="10.00">Text Input</text>
+</g>
+<!-- p2_transcribe_audio&#45;&gt;p3_route_query -->
+<g id="edge4" class="edge">
+<title>p2_transcribe_audio-&gt;p3_route_query</title>
+<path fill="none" stroke="orange" d="M94.83,-65.36C137.9,-75.95 204.02,-92.21 248.43,-103.13"></path>
+<polygon fill="orange" stroke="orange" points="247.48,-106.51 258.03,-105.5 249.15,-99.71 247.48,-106.51"></polygon>
+<text text-anchor="middle" x="137.34" y="-87.25" font-family="monospace" font-size="10.00">Transcribed Text</text>
+</g>
+<!-- p3_route_query&#45;&gt;external_apis -->
+<g id="edge5" class="edge">
+<title>p3_route_query-&gt;external_apis</title>
+<path fill="none" stroke="purple" d="M325.16,-102.08C343.33,-94.43 366.92,-84.48 387.54,-75.8"></path>
+<polygon fill="purple" stroke="purple" points="388.76,-79.08 396.61,-71.97 386.04,-72.63 388.76,-79.08"></polygon>
+<text text-anchor="middle" x="330.94" y="-79.94" font-family="monospace" font-size="10.00">API Request</text>
+</g>
+<!-- p3_route_query&#45;&gt;ollama_ai -->
+<g id="edge6" class="edge">
+<title>p3_route_query-&gt;ollama_ai</title>
+<path fill="none" stroke="purple" d="M283.74,-96.93C274.35,-82.54 260.95,-61.98 250.17,-45.46"></path>
+<polygon fill="purple" stroke="purple" points="253.4,-44.01 245,-37.54 247.54,-47.83 253.4,-44.01"></polygon>
+<text text-anchor="middle" x="240.15" y="-74.2" font-family="monospace" font-size="10.00">Chat Request</text>
+</g>
+<!-- p3_route_query&#45;&gt;db -->
+<g id="edge7" class="edge">
+<title>p3_route_query-&gt;db</title>
+<path fill="none" stroke="grey" d="M288.43,-132.78C276.41,-164.46 251.5,-230.14 237.12,-268.04"></path>
+<polygon fill="grey" stroke="grey" points="234.01,-266.39 233.73,-276.98 240.55,-268.87 234.01,-266.39"></polygon>
+<text text-anchor="middle" x="284.57" y="-191.41" font-family="monospace" font-size="10.00">Log Query</text>
+</g>
+<!-- p4_create_spoken_response -->
+<g id="node9" class="node">
+<title>p4_create_spoken_response</title>
+<ellipse fill="white" stroke="black" cx="329.79" cy="-221.41" rx="69.41" ry="18"></ellipse>
+<text text-anchor="middle" x="329.79" y="-218.41" font-family="monospace" font-size="10.00">Create Spoken Response</text>
+</g>
+<!-- p3_route_query&#45;&gt;p4_create_spoken_response -->
+<g id="edge8" class="edge">
+<title>p3_route_query-&gt;p4_create_spoken_response</title>
+<path fill="none" stroke="red" d="M301.15,-132.77C306.43,-149.1 314.28,-173.41 320.43,-192.44"></path>
+<polygon fill="red" stroke="red" points="317.04,-193.33 323.44,-201.77 323.7,-191.18 317.04,-193.33"></polygon>
+<text text-anchor="middle" x="351.9" y="-165.6" font-family="monospace" font-size="10.00">Final Text Response</text>
+</g>
+<!-- p4_create_spoken_response&#45;&gt;audio_files -->
+<g id="edge9" class="edge">
+<title>p4_create_spoken_response-&gt;audio_files</title>
+<path fill="none" stroke="red" d="M368.22,-236.81C378.74,-241.03 390.2,-245.62 400.92,-249.92"></path>
+<polygon fill="red" stroke="red" points="399.35,-253.06 409.93,-253.53 401.95,-246.56 399.35,-253.06"></polygon>
+<text text-anchor="middle" x="352.07" y="-246.37" font-family="monospace" font-size="10.00">Save Audio File</text>
+</g>
+<!-- p4_create_spoken_response&#45;&gt;p1_handle_user_interaction -->
+<g id="edge10" class="edge">
+<title>p4_create_spoken_response-&gt;p1_handle_user_interaction</title>
+<path fill="none" stroke="red" d="M289.07,-206.49C266.53,-198.24 238.31,-187.9 214.31,-179.11"></path>
+<polygon fill="red" stroke="red" points="215.64,-175.87 205.04,-175.72 213.23,-182.44 215.64,-175.87"></polygon>
+<text text-anchor="middle" x="217.67" y="-195.8" font-family="monospace" font-size="10.00">Return Response</text>
+</g>
+</g>
+</svg>
