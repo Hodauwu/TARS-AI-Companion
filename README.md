@@ -66,8 +66,6 @@ cd "/path/to/TARS-AI-Companion"
 python3 -m venv venv
 source venv/bin/activate
 
-# Install Python dependencies
-pip install -r requirements.txt # You should create a requirements.txt file!
 
 # Setup the database using the provided .sql files
 # Run the authentication and chatbot servers
