@@ -26,7 +26,7 @@ CORS(app, origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://loc
 TOMORROW_API_KEY = "f3ykPwS9fs7y9kCOBCxg0RNkh4tiTMKQ"
 NEWS_API_KEY = "41e9704fcb334c3c92c4f4a4ea0fe14d"
 RAPIDAPI_KEY = "522e952931msh333c5d80fc13c3p173272jsn34edf4898247"
-GEMINI_API_KEY = "AIzaSyC0wMe1V-ZPQg1XJkeh6hThtvj4tqVYhaY" # Your key is now here
+GEMINI_API_KEY = "" # Your key is now here
 if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
 
@@ -560,4 +560,5 @@ def serve_audio(filename):
     return send_from_directory(AUDIO_DIR, filename)
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000, debug=True)
