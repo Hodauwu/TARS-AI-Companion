@@ -23,9 +23,9 @@ app = Flask(__name__)
 CORS(app, origins=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:8000", "http://127.0.0.1:8000"])
 
 # --- API Keys ---
-TOMORROW_API_KEY = "f3ykPwS9fs7y9kCOBCxg0RNkh4tiTMKQ"
-NEWS_API_KEY = "41e9704fcb334c3c92c4f4a4ea0fe14d"
-RAPIDAPI_KEY = "522e952931msh333c5d80fc13c3p173272jsn34edf4898247"
+TOMORROW_API_KEY = ""
+NEWS_API_KEY = ""
+RAPIDAPI_KEY = ""
 GEMINI_API_KEY = "" # Your key is now here
 if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
@@ -562,3 +562,4 @@ def serve_audio(filename):
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000, debug=True)
+
