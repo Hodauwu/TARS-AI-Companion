@@ -17,6 +17,12 @@ Dual Interaction Modes: Seamlessly switch between the immersive voice-first view
 
 Self-Hosted AI Stack: All AI functionalities run locally, ensuring privacy and control.
 
+# Screenshots
+![1](1.png)
+![2](2.png)
+![3](3.png)
+![4](4.png)
+
 # Technology Stack
 Frontend
 Framework: React (with Vite)
